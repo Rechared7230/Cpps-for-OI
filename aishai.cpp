@@ -1,5 +1,4 @@
 #include<iostream>
-
 using namespace std;
 const int M=10000000;
 bool ck[M+1]={};//0zhi 
