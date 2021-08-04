@@ -8,7 +8,7 @@
 >> Come on!
 ## Aishai.cpp
 > Updated 2021.8.4
-```
+
     #include<iostream>
     using namespace std;
     const int M=10000000;
@@ -28,4 +28,3 @@
         cout<<cnt-1;
         return 0;
     }
-```
