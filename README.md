@@ -144,3 +144,51 @@
         return 0;
     }
 ```
+## Ftwt.cpp
+> Updated 2021.8.6
+```
+    #include<iostream>//O(2^n)
+    using namespace std;
+    void move(int n,char a,char b,char c){//a:Source of plate;b:Cache;c:Target plate;
+        if(n==1){
+            cout<<a<<"->"<<c<<endl;
+        }
+        else{
+            move(n-1,a,c,b);
+            cout<<a<<"->"<<c<<endl;
+            move(n-1,b,a,c);
+        }
+        return;
+    }
+    int main(){
+        int n;
+        cin>>n;
+        move(n,'a','b','c');
+        return 0;
+    }
+```
+## Hcbds.cpp
+> Updated 2021.8.6
+```
+    #include<iostream>
+    using namespace std;
+    int x[10]={6,2,5,5,4,5,5,3,7,6};
+    int main(){
+        int n;
+        cin>>n;
+        n-=4;
+        int a,b,c;
+        int ca;
+        for(a=0;a<10;a++){
+            for(b=0;b<10;b++){
+                if(a+b>9){
+                    ca=x[(a+b)/10]+x[(a+b)%10];
+                }
+                else ca=x[a+b];
+                
+            }
+        }
+        return 0;
+    }
+    //Fuck!
+```
