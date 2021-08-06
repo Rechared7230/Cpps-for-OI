@@ -192,3 +192,112 @@
     }
     //Fuck!
 ```
+## Xzkz.cpp
+> Updated 2021.8.6
+```
+    #include<iostream>
+    using namespace std;
+    int s[51];
+    struct kz{
+        int xh;
+        int sd;
+        int xf;
+        int c;
+    }z[200000];
+    // int main(){
+    //     int n,p;
+    //     cin>>n>>p;
+    //     int ans;
+    //     for(int i=1;i<=n;i++)cin>>z[i].xh>>z[i].sd>>z[i].xf;
+    //     for(int i=1;i<n;i++){
+    //         for(int j=2;j<=n;j++){
+    //             if(z[i].sd!=z[j].sd)continue;
+    //             bool ck=false;
+    //             for(int st=i,ed=j;st<ed;st++){
+    //                 if(z[st].xf<=p)ck=true;
+    //             }
+    //             if(ck)ans++;
+    //         }
+    //     }
+    //     cout<<ans;
+    //     return 0;
+    // }
+    //O(n^3)
+
+    int main(){
+        int n,p;
+        cin>>n>>p;
+        int ans;
+        z[0].c=0;
+        for(int i=1;i<=n;i++)cin>>z[i].xh>>z[i].sd>>z[i].xf;
+        for(int i=1;i<=n;i++){
+            if(z[i].xf<=p)z[i].c=z[i-1].c+1;
+            else z[i].c=z[i-1].c;
+        }
+        for(int i=1;i<n;i++){
+            for(int j=2;j<=n;j++){
+                if(z[i].sd!=z[j].sd)continue;          
+                if(z[j].c-z[i].c>0)ans++;
+            }
+        }
+        cout<<ans;
+        return 0;
+    }//O(n^2)
+    //Msybe you can use next[i] to mark these houses that have the same color,and change j++ into j=next[j];
+```
+## DFS-algorithm-zmg.cpp
+> Updated 2021.8.6
+```
+    #include<iostream>
+    using namespace std;
+    int a[100][100];//1false 0 true
+    bool visit[100][100];
+    int stn,stm,edn,edm;
+    int n,m;
+    int minn=0xf7f7f7;
+    void dfs(int x,int y,int pathlength){
+        if(x==edn&&y==edm){
+            if(minn>pathlength)minn=pathlength;
+            return ;
+        }
+        //left
+        if(!a[x][y-1] && !visit[x][y-1] && x,y-1>=1 && x<=n && y-1<=m){
+            visit[x][y-1]=1;
+            dfs(x,y-1,pathlength+1);
+            visit[x][y-1]=0;
+        }
+        //right
+        if(!a[x][y+1] && !visit[x][y+1] && x,y+1>=1 && x<=n && y+1<=m){
+            visit[x][y+1]=1;
+            dfs(x,y+1,pathlength+1);
+            visit[x][y+1]=0;
+        }
+        //up
+        if(!a[x-1][y] && !visit[x-1][y] && x-1,y>=1 && x-1<=n && y<=m){
+            visit[x-1][y]=1;
+            dfs(x-1,y,pathlength+1);
+            visit[x-1][y]=0;
+        }
+        //down
+        if(!a[x+1][y] && !visit[x+1][y] && x+1,y>=1 && x+1<=n && y<=m){
+            visit[x+1][y]=1;
+            dfs(x+1,y,pathlength+1);
+            visit[x+1][y]=0;
+        }
+
+    }
+    int main(){
+        
+        cin>>n>>m;//a[n][m]
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                cin>>a[i][j];
+            }
+        }
+        int stn,stm,edn,edm;
+        cin>>stn>>stm>>edn>>edm;
+        dfs(stn,stm,0);
+        cout<<minn;
+        return 0;
+    }
+```
