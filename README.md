@@ -11,7 +11,12 @@
 >>>     ```
 >>>     Codes.
 >>>     ```
->> Come on!
+>> Come on!    
+>> Added Place:    
+>> NotesHere!!    
+>> memset(a,num,sizeof(a)); Is in headfile <cstring> or <string.h>   
+
+
 ## Aishai.cpp
 > Updated 2021.8.4
 ```
@@ -474,6 +479,70 @@
         return 0;
     }
 ```
+> Update 2021.8.8#2   
+>> Changed the output form to AC this question.
+```
+    #include<iostream>
+    using namespace std;
+    int main(){
+        int n;
+        cin>>n;
+        int ans;
+        if(n>30){cout<<0;return 0;}
+        for(int i1=1;i1<4;i1++){
+        for(int i2=1;i2<4;i2++){
+        for(int i3=1;i3<4;i3++){
+        for(int i4=1;i4<4;i4++){
+        for(int i5=1;i5<4;i5++){
+        for(int i6=1;i6<4;i6++){
+        for(int i7=1;i7<4;i7++){
+        for(int i8=1;i8<4;i8++){
+        for(int i9=1;i9<4;i9++){
+        for(int i0=1;i0<4;i0++){
+        if(i1+i2+i3+i4+i5+i6+i7+i8+i9+i0==n){
+        ans++;
+        //cout<<i1<<" "<<i2<<" "<<i3<<" "<<i4<<" "<<i5<<" "<<i6<<" "<<i7<<" "<<i8<<" "<<i9<<" "<<i0<<"\n";
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        //if(n>30){cout<<0;return 0;}
+        cout<<ans<<endl;
+        for(int i1=1;i1<4;i1++){
+        for(int i2=1;i2<4;i2++){
+        for(int i3=1;i3<4;i3++){
+        for(int i4=1;i4<4;i4++){
+        for(int i5=1;i5<4;i5++){
+        for(int i6=1;i6<4;i6++){
+        for(int i7=1;i7<4;i7++){
+        for(int i8=1;i8<4;i8++){
+        for(int i9=1;i9<4;i9++){
+        for(int i0=1;i0<4;i0++){
+        if(i1+i2+i3+i4+i5+i6+i7+i8+i9+i0==n){
+        //ans++;
+        cout<<i1<<" "<<i2<<" "<<i3<<" "<<i4<<" "<<i5<<" "<<i6<<" "<<i7<<" "<<i8<<" "<<i9<<" "<<i0<<"\n";
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        //cout<<ans;
+        return 0;
+    }
+```
 ## CountFx.cpp
 > Updated 2021.8.8
 ```
@@ -499,6 +568,187 @@
                 }
             }
         }
+        
+        return 0;
+    }
+```
+## ThreeClick.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    using namespace std;
+    //int a[9]={1,2,3,4,5,6,7,8,9};
+    int main(){
+        int a,b,c;
+        cin>>a>>b>>c;
+        bool check=false;
+        for(int i=1;i<10;i++){
+            for(int j=1;j<10&&j!=i;j++){
+                for(int k=1;k<10&&k!=i&&k!=j;k++){
+                    int n[9]={0,0,0,0,0,0,0,0,0};
+                    int A,B,C;
+                    A=i*100+j*10+k;
+                    B=A*b/a;
+                    C=A*c/a;
+                    if(B>999||C>999)continue;
+                    n[i]=1;n[j]=1;n[k]=1;
+                    n[B/100]++;
+                    n[B/10-(B/100)*10]++;
+                    n[B%10]++;
+                    n[C/100]++;
+                    n[C/10-(C/100)*10]++;
+                    n[C%10]++;
+                    bool ck=true;
+                    for(int x=0;x<9;x++){
+                        if(n[x]>=2)ck=false;
+                        
+                    }
+                    if(ck){
+                        cout<<A<<" "<<B<<" "<<C<<"\n";
+                        check=true;
+                    }
+                }
+            }
+        }
+        if(!check)cout<<"No!!!";
+        return 0;
+    }
+```
+## ChooseNumber.cpp
+> Updated 2021.8.8
+```
+    //FUCKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK!
+    #include<iostream>
+    #include<cmath>
+    using namespace std;
+    int a[20];
+    bool ck[20];
+    int n;
+    int ans;
+    bool isss(int num){
+        for(int i=0;i<sqrt(num);i++){
+            if(!num%i){return false;}
+        }
+        return true;
+    }
+    int cac;
+    int dfs(int nu){
+        if(nu==0){
+            if(isss(cac))ans++;
+            return ;
+        }
+
+    }
+    int main(){
+        int k;
+        cin>>n>>k;
+        for(int i=0;i<n;i++)cin>>a[i];
+        dfs(k);
+        return 0;
+    }
+```
+## ChooseCoins.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    #include<cmath>
+    using namespace std;
+    const int N=0xf7f7f;
+    int main(){
+        //MEMSET(A,N);
+        int a[30]={0,N,1,N,2,1,3,1,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N};
+        int b[3]={2,5,7};
+        //int res=N;
+        for(int i=8;i<=27;i++){
+            //a[i]=min(res,min(a[i-2]+1,min(a[i-5]+1,a[i-7]+1)));
+            for(int j=0;j<3;j++){
+                a[i]=min(a[i],a[i-b[j]]+1);
+            }
+        }
+        cout<<a[27];
+        return 0;
+    }
+```
+## UniquePaths.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    using namespace std;
+    int main(){
+        int n,m;
+        cin>>n>>m;//From 0,0 to n,m
+        int a[n+1][m+1];
+        for(int i=0;i<=n;i++){
+            for(int j=0;j<=m;j++){
+                if(i==0||j==0){
+                    a[i][j]=1;
+                }
+                else a[i][j]=a[i-1][j]+a[i][j-1];
+            }
+        }
+        cout<<a[n][m];
+
+        return 0;
+    }
+```
+## JumpGame.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    #include<cstdlib>
+    #include<cstring>
+    using namespace std;
+    const int N=100;
+    int main(){
+        int n;
+        cin>>n;
+        int a[N];
+        bool ck[N];
+        memset(ck,0,sizeof(ck));
+        for(int i=0;i<n;i++)cin>>a[i];
+        int tar;
+        cin>>tar;
+        ck[0]=1;
+        for(int i=0;i<tar;i++){
+            if(ck[i]){
+                for(int j=i;j<=i+a[i];j++){
+                    ck[j]=true;
+                }
+            }
+        }
+        for(int i=0;i<=tar;i++)cout<<ck[i];
+        cout<<endl;
+
+        if(ck[tar])cout<<"Yes!!!";
+        else cout<<"No!!!";
+        return 0;
+    }
+```
+## NumThreeCorner.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    #include<cmath>
+    using namespace std;
+    int main(){
+        int n;
+        cin>>n;
+        int a[1000][1000];
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=i;j++){
+                cin>>a[i][j];
+            }
+        }
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                a[i][j]+=max(a[i-1][j-1],a[i-1][j]);
+            }
+        }
+        int ans;
+        for(int i=1;i<=n;i++){
+            ans=max(ans,a[n][i]);
+        }
+        cout<<ans;
         
         return 0;
     }
