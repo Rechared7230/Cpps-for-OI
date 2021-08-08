@@ -393,3 +393,113 @@
         return 0;
     }
 ```
+## Shelter.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    using namespace std;
+
+    void slove();
+    int main(){
+        int n;
+        cin>>n;
+        for(int i=0;i<n;i++){
+            slove();
+        }
+        return 0;
+    }
+    void slove(){
+        int n,p,q;
+        cin>>n>>p>>q;
+        int line;
+        //bool isji=false;
+        //if(n&1)isji=true;
+        if(p==0&&q==0){cout<<0<<"\n";return ;}
+        if(n==1){
+            cout<<p<<"\n";
+            return ;
+        }
+        for(int i=2;i<=n;i++){
+            int ca;
+            if((n-i)&1){
+                ca=2*i+1;
+                if(ca*p<q){line =i-1;break;}
+            }
+            else{
+                ca=2*i-1;
+                if(ca*p<q){line=i-2;break;}
+            }
+        }
+        int ans;
+        ans=line*(line+1)*p/2+(n-line)*q/2;
+        cout<<ans<<"\n";
+        return ;
+    }
+```
+## BakeChicken.cpp
+>> Updated 2021.8.8
+```
+    #include<iostream>
+    using namespace std;
+    int main(){
+        int n;
+        cin>>n;
+        int ans;
+        if(n>30){cout<<0;return 0;}
+        for(int i1=1;i1<4;i1++){
+        for(int i2=1;i2<4;i2++){
+        for(int i3=1;i3<4;i3++){
+        for(int i4=1;i4<4;i4++){
+        for(int i5=1;i5<4;i5++){
+        for(int i6=1;i6<4;i6++){
+        for(int i7=1;i7<4;i7++){
+        for(int i8=1;i8<4;i8++){
+        for(int i9=1;i9<4;i9++){
+        for(int i0=1;i0<4;i0++){
+        if(i1+i2+i3+i4+i5+i6+i7+i8+i9+i0==n){
+        ans++;
+        cout<<i1<<" "<<i2<<" "<<i3<<" "<<i4<<" "<<i5<<" "<<i6<<" "<<i7<<" "<<i8<<" "<<i9<<" "<<i0<<"\n";
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        cout<<ans;
+        return 0;
+    }
+```
+## CountFx.cpp
+> Updated 2021.8.8
+```
+    #include<iostream>
+    #include<windows.h>
+    using namespace std;
+    int main(){
+        int n,m;
+        cin>>n>>m;
+        cout<<n<<m;
+        Sleep(10000);
+        int zfx=0,cfx=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;i<m;j++){
+                for(int p=1;p<=n;p++){
+                    for(int q=1;q<=m;q++){
+                        if(p-i==q-j){
+                            zfx=zfx+1;
+                        }
+                        else {cfx+=1;}
+                        cout<<zfx<<" "<<cfx<<endl;;
+                    }
+                }
+            }
+        }
+        
+        return 0;
+    }
+```

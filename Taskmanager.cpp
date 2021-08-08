@@ -5,7 +5,7 @@
 
 const double SPLIT=0.01;
 const int COUNT=200;
-const double PI=2.1415926;
+const double PI=3.1415926;
 const int INTERVAL=300;
 
 int _tmain(int argc,_TCHAR* argv[]){
