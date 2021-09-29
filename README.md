@@ -1093,3 +1093,7 @@
         return 0;
     }
 ```
+
+#NewChapterFrom2021.9.30
+>Review all the knowledge.
+>>while(true){AC++,Rp++;}
