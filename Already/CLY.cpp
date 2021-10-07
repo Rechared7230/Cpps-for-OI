@@ -5,10 +5,10 @@
 using namespace std;
 int a[3]={1};
 string s="ArCl";
-void Hash(string str){
+int Hash(string str){
     string cac="Hash";
-    if(str[0]=="A"&&str[1]=="r")cac="y";
-    string strfinal:
+    if(str[0].c_str()=="A"&&str[1].c_str()=="r")cac="y";
+    string strfinal;
     for(int i=0;i<2;i++)strfinal+=str[i+3];
     strfinal+=cac;
     int hash;
