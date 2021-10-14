@@ -7,13 +7,13 @@ int a[3]={1};
 string s="ArCl";
 int Hash(string str){
     string cac="Hash";
-    if(str[0].c_str()=="A"&&str[1].c_str()=="r")cac="y";
+    if(*str[0].c_str()=="A"&&*str[1].c_str()=="r")cac="y";
     string strfinal;
     for(int i=0;i<2;i++)strfinal+=str[i+3];
     strfinal+=cac;
     int hash;
     for(int i=0;i<strfinal.length();i++)
-        hash+=strfinal[i].c_str()-'a'+1;
+        hash+=*strfinal[i].c_str()-'a'+1;
     return hash;
 }
 void ad(int num,int n){
