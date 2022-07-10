@@ -1,28 +1,26 @@
 #include<iostream>
+#include<cstring>
+#include<string>
 
 using namespace std;
-int a[22][22];
-bool vis[22][22];
-int cgx[4]={0,1,0,-1};
-int cgy[4]={1,0,-1,0};
-int n,m;
-int x1,y2;
-int ans=0;
-void dfs(int x,int y){
-    if(x==n&&y==m){ans++;return ;}
-    if(x>n || y>m)return ;
-    for(int i=0;i<4;i++){
-        if(!vis[x+cgx[i]][y+cgy[i]]){
-            dfs(x+cgx[i],y+cgy[i]);
+int p[21][21];
+int main(){
+    memset(p,0,sizeof(p));
+    int a,b,n,m;
+    cin>>a>>b>>n>>m;
+    for(int i=1;i<=20;i++){
+        p[1][i]=1;
+    }
+    for(int i=1;i<=20;i++){
+        p[i][1]=1;
+    }
+    for(int i=2;i<=a;i++){
+        for(int j=2;j<=b;j++){
+            if(n-i+m-j!=3){
+                p[i][j]=p[i][j-1]+p[i-1][j];
+            }
         }
     }
-    return;
-}
-int main(){
-    cin>>n>>m;
-    cin>>x1>>y2;
-    vis[x1][y2]=1;
-    dfs(0,0);
-    cout<<ans;
+    cout<<p[a][b];
     return 0;
 }
