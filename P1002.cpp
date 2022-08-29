@@ -1,26 +1,35 @@
 #include<iostream>
 #include<cstring>
 #include<string>
+#include<cmath>
 
 using namespace std;
-int p[21][21];
+int mp[21][21];
+bool vis[21][21];
+int n,m,a,b;
+unsigned long long ans=0;
+
 int main(){
-    memset(p,0,sizeof(p));
-    int a,b,n,m;
-    cin>>a>>b>>n>>m;
-    for(int i=1;i<=20;i++){
-        p[1][i]=1;
-    }
-    for(int i=1;i<=20;i++){
-        p[i][1]=1;
-    }
-    for(int i=2;i<=a;i++){
-        for(int j=2;j<=b;j++){
-            if(n-i+m-j!=3){
-                p[i][j]=p[i][j-1]+p[i-1][j];
-            }
-        }
-    }
-    cout<<p[a][b];
-    return 0;
-}
+	cin>>n>>m>>a>>b;
+	memset(vis,false,sizeof(vis));
+	memset(mp,0,sizeof(mp));
+//	dfs(n,m);
+mp[0][0]=1;
+	for(int i=0;i<=n;i++){
+		for(int j=0;j<=m;j++){
+			if(mp[i][j]>0)continue;
+			int dist=abs(i-a)+abs(j-b);
+			if(i==0 && dist!=3 && i!=n && j!=m){
+				mp[i][j]=mp[i][j-1];continue;
+			}
+			if(j==0 && dist!=3 && i!=n && j!=m){
+				mp[i][j]=mp[i-1][j];continue;
+			}
+			if(dist!=3 && i!=n && j!=m){
+				mp[i][j]=mp[i-1][j]+mp[i][j-1];continue;
+			}
+		}
+	}
+	cout<<mp[n][m];
+	return 0;
+} 
